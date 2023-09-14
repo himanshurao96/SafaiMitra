@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:safaimitra/BottomBar/bottomtap.dart';
 import 'package:safaimitra/Drawer/Fuel/add.dart';
 import 'package:safaimitra/Drawer/Fuel/list.dart';
+import 'package:safaimitra/Drawer/Fuel/report.dart';
 import 'package:safaimitra/Utils.dart';
 import 'package:safaimitra/drawer.dart';
 import 'package:pie_chart/pie_chart.dart';
@@ -24,6 +25,12 @@ class FuelPage extends StatelessWidget {
     "This Month": 0,
     "Prev.Month": 500,
     "This Year": 20000,
+  };
+  final legendLabels2 = <String, String>{
+    "Today": "Today : 0 L",
+    "This Month": "This Month : 0 L",
+    "Prev.Month": "Prev.Month : 500 L",
+    "This Year": "This Year : 20000 L",
   };
   bool _showLegendLabel = true;
 
@@ -63,56 +70,60 @@ class FuelPage extends StatelessWidget {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10.0)),
                 child: Container(
-                  padding: EdgeInsets.all(10.0),
+                  padding: EdgeInsets.all(15.0),
                   height: 150,
-                  child: PieChart(
-                    dataMap: dataMap,
-                    animationDuration: Duration(milliseconds: 800),
-                    chartLegendSpacing: 80,
-                    chartRadius: MediaQuery.of(context).size.width / 2,
-                    colorList: [
-                      Utils.hexToColor("#D6BAFF"),
-                      Utils.hexToColor("#CAA7FF"),
-                      Utils.hexToColor("#A467FF"),
-                      Utils.hexToColor("#6A0EFF"),
-                    ],
-                    // chartType: ChartType.ring,
-                    // baseChartColor: Colors.black,
-                    // chartValuesOptions:
-                    //     ChartValuesOptions(showChartValuesInPercentage: true),
-                    // totalValue: 20
-                    initialAngleInDegree: 0,
+                  child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        PieChart(
+                          dataMap: dataMap,
+                          animationDuration: Duration(milliseconds: 800),
+                          chartLegendSpacing: 70,
+                          chartRadius: MediaQuery.of(context).size.width / 2,
+                          colorList: [
+                            Utils.hexToColor("#D6BAFF"),
+                            Utils.hexToColor("#CAA7FF"),
+                            Utils.hexToColor("#A467FF"),
+                            Utils.hexToColor("#6A0EFF"),
+                          ],
+                          // chartType: ChartType.ring,
+                          // baseChartColor: Colors.black,
+                          // chartValuesOptions:
+                          //     ChartValuesOptions(showChartValuesInPercentage: true),
+                          // totalValue: 20
+                          initialAngleInDegree: 0,
 
-                    chartType: ChartType.ring,
+                          chartType: ChartType.ring,
 
-                    ringStrokeWidth: 28,
-                    centerTextStyle: TextStyle(
-                        color: Utils.hexToColor("#6A0EFF"),
-                        fontSize: 17,
-                        fontWeight: FontWeight.w500),
+                          ringStrokeWidth: 28,
+                          centerTextStyle: TextStyle(
+                              color: Utils.hexToColor("#6A0EFF"),
+                              fontSize: 17,
+                              fontWeight: FontWeight.w500),
 
-                    centerText: "Price",
-                    legendLabels: _showLegendLabel ? legendLabels : {},
+                          centerText: "Price",
+                          legendLabels: _showLegendLabel ? legendLabels : {},
 
-                    legendOptions: LegendOptions(
-                      // showLegendsInRow: true,
-                      legendPosition: LegendPosition.right,
-                      showLegends: true,
-                      legendShape: BoxShape.circle,
-                      legendTextStyle: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+                          legendOptions: LegendOptions(
+                            // showLegendsInRow: true,
+                            legendPosition: LegendPosition.right,
+                            showLegends: true,
+                            legendShape: BoxShape.circle,
+                            legendTextStyle: TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
 
-                    chartValuesOptions: ChartValuesOptions(
-                      showChartValueBackground: false,
-                      showChartValues: false,
-                      showChartValuesInPercentage: true,
-                      showChartValuesOutside: true,
-                      decimalPlaces: 1,
-                      // showChartValuesInPercentage: true,
-                    ),
-                  ),
+                          chartValuesOptions: ChartValuesOptions(
+                            showChartValueBackground: false,
+                            showChartValues: false,
+                            showChartValuesInPercentage: true,
+                            showChartValuesOutside: true,
+                            decimalPlaces: 1,
+                            // showChartValuesInPercentage: true,
+                          ),
+                        ),
+                      ]),
                 )),
             Container(
               padding: EdgeInsets.all(6.0),
@@ -134,55 +145,60 @@ class FuelPage extends StatelessWidget {
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10.0)),
               child: Container(
-                padding: EdgeInsets.all(10.0),
+                padding: EdgeInsets.all(15.0),
                 height: 150,
-                child: PieChart(
-                  dataMap: dataMap2,
-                  animationDuration: Duration(milliseconds: 800),
-                  chartLegendSpacing: 80,
-                  chartRadius: MediaQuery.of(context).size.width / 2,
-                  colorList: [
-                    Utils.hexToColor("#D6BAFF"),
-                    Utils.hexToColor("#CAA7FF"),
-                    Utils.hexToColor("#A467FF"),
-                    Utils.hexToColor("#6A0EFF"),
-                  ],
-                  // chartType: ChartType.ring,
-                  // baseChartColor: Colors.black,
-                  // chartValuesOptions:
-                  //     ChartValuesOptions(showChartValuesInPercentage: true),
-                  // totalValue: 20
-                  initialAngleInDegree: 0,
+                child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      PieChart(
+                        dataMap: dataMap2,
+                        animationDuration: Duration(milliseconds: 800),
+                        chartLegendSpacing: 70,
+                        chartRadius: MediaQuery.of(context).size.width / 2,
+                        colorList: [
+                          Utils.hexToColor("#D6BAFF"),
+                          Utils.hexToColor("#CAA7FF"),
+                          Utils.hexToColor("#A467FF"),
+                          Utils.hexToColor("#6A0EFF"),
+                        ],
+                        // chartType: ChartType.ring,
+                        // baseChartColor: Colors.black,
+                        // chartValuesOptions:
+                        //     ChartValuesOptions(showChartValuesInPercentage: true),
+                        // totalValue: 20
+                        initialAngleInDegree: 0,
 
-                  chartType: ChartType.ring,
+                        chartType: ChartType.ring,
 
-                  ringStrokeWidth: 28,
-                  centerTextStyle: TextStyle(
-                      color: Utils.hexToColor("#6A0EFF"),
-                      fontSize: 17,
-                      fontWeight: FontWeight.w500),
+                        ringStrokeWidth: 28,
+                        centerTextStyle: TextStyle(
+                            color: Utils.hexToColor("#6A0EFF"),
+                            fontSize: 17,
+                            fontWeight: FontWeight.w500),
 
-                  centerText: "Qty",
+                        centerText: "Qty",
+                        legendLabels: _showLegendLabel ? legendLabels2 : {},
 
-                  legendOptions: LegendOptions(
-                    // showLegendsInRow: true,
-                    legendPosition: LegendPosition.right,
-                    showLegends: true,
-                    // legendShape: BoxShape.circle,
-                    // legendTextStyle: TextStyle(
-                    //   fontWeight: FontWeight.bold,
-                    // ),
-                  ),
+                        legendOptions: LegendOptions(
+                          // showLegendsInRow: true,
+                          legendPosition: LegendPosition.right,
+                          showLegends: true,
+                          legendShape: BoxShape.circle,
+                          legendTextStyle: TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
 
-                  chartValuesOptions: ChartValuesOptions(
-                    showChartValueBackground: false,
-                    showChartValues: false,
-                    showChartValuesInPercentage: true,
-                    showChartValuesOutside: true,
-                    decimalPlaces: 1,
-                    // showChartValuesInPercentage: true,
-                  ),
-                ),
+                        chartValuesOptions: ChartValuesOptions(
+                          showChartValueBackground: false,
+                          showChartValues: false,
+                          showChartValuesInPercentage: true,
+                          showChartValuesOutside: true,
+                          decimalPlaces: 1,
+                          // showChartValuesInPercentage: true,
+                        ),
+                      ),
+                    ]),
               ),
             ),
             SizedBox(
@@ -207,7 +223,10 @@ class FuelPage extends StatelessWidget {
                 FloatingActionButton.extended(
                   backgroundColor: Utils.hexToColor("#6A0EFF"),
                   onPressed: () {
-                    // Add your onPressed code here!
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Report()),
+                    );
                   },
                   label: const Text('REPORT'),
                   icon: const Icon(Icons.receipt_long_outlined),

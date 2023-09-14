@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:safaimitra/Drawer/Customer%20M/Ledger.dart';
+import 'package:safaimitra/Drawer/Customer%20M/registration.dart';
+import 'package:safaimitra/Drawer/Customer%20M/usercharge.dart';
 import 'package:safaimitra/Drawer/Fuel/fuel.dart';
 import 'package:safaimitra/Drawer/profile.dart';
 import 'package:safaimitra/Utils.dart';
@@ -165,6 +168,10 @@ class DrawerFile extends StatelessWidget {
                 ListTile(
                   title: Text("Registration"),
                   onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => RegistrationPage()));
                     //action on press
                   },
                 ),
@@ -172,12 +179,18 @@ class DrawerFile extends StatelessWidget {
                 ListTile(
                   title: Text("User Charge"),
                   onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => UserChargePage()));
                     //action on press
                   },
                 ),
                 ListTile(
                   title: Text("Ledger"),
                   onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => LedgerPage()));
                     //action on press
                   },
                 ),

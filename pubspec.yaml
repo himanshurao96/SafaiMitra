@@ -34,6 +34,14 @@ dependencies:
   smooth_page_indicator: ^1.1.0
   flutter_image_slideshow: ^0.1.6
   pie_chart: ^5.3.2
+  snippet_coder_utils: ^1.0.14
+  intl: ^0.18.1
+  flutter_speed_dial: ^7.0.0
+  freestyle_speed_dial: ^1.0.1+2
+  toggle_switch: ^2.1.0
+  font_awesome_flutter: ^10.5.0
+  animated_toggle_switch: ^0.8.0
+
 
 
   # The following adds the Cupertino Icons font to your application.
