@@ -1,8 +1,10 @@
 // import 'package:another_carousel_pro/another_carousel_pro.dart';
 import 'dart:convert';
 
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:retrofit/http.dart';
+import 'package:safaimitra/LoginApi/api_service.dart';
 import 'package:safaimitra/apirequest.dart';
 import 'package:safaimitra/drawer.dart';
 import 'package:safaimitra/slider_screen.dart';
@@ -24,7 +26,7 @@ class _HomePage1State extends State<HomePage1> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-        future: getData(),
+        // future: getData(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             return Scaffold(
@@ -283,19 +285,20 @@ class _HomePage1State extends State<HomePage1> {
         });
   }
 
-  Future<List<Apirequest>> getData() async {
-    final response = await http
-        .post(Uri.parse('http://apitest.safaimitra.click/auth/login'));
-    var data = jsonDecode(response.body.toString());
-    print(data);
+  // Future<List<Apirequest>> getData() async {
+  //   final response = await http
+  //       .post(Uri.parse('http://apitest.safaimitra.click/auth/login'));
+  //   var data = jsonDecode(response.body.toString());
+  //   print(data);
 
-    if (response.statusCode == 200) {
-      for (Map<String, dynamic> index in data) {
-        apirequest.add(Apirequest.fromJson(index));
-      }
-      return apirequest;
-    } else {
-      return apirequest;
-    }
-  }
+  //   if (response.statusCode == 200) {
+  //     for (Map<String, dynamic> index in data) {
+  //       apirequest.add(Apirequest.fromJson(index));
+  //     }
+  //     return apirequest;
+  //   } else {
+  //     return apirequest;
+  //   }
+  // }
+
 }

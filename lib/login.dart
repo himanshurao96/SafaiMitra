@@ -1,5 +1,9 @@
+import 'dart:math';
+
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
+import 'package:safaimitra/LoginApi/api_service.dart';
 import 'package:safaimitra/Utils.dart';
 import 'package:safaimitra/otp.dart';
 import 'package:http/http.dart' as http;
@@ -7,11 +11,17 @@ import 'package:http/http.dart' as http;
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
+
   @override
   State<LoginPage> createState() => _LoginPageState();
+
+  
 }
 
 class _LoginPageState extends State<LoginPage> {
+
+  bool pressed = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -119,10 +129,10 @@ class _LoginPageState extends State<LoginPage> {
                         builder: (context) => const OtpVerification()));
               },
             ),
-            SizedBox(
+          const  SizedBox(
               height: 40.0,
             ),
-            Align(
+          const  Align(
               alignment: Alignment.center,
               child: Text(
                 "OR",
@@ -134,6 +144,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
             InkWell(
               child: Container(
+              
                 width: 130,
                 height: 50,
                 margin: EdgeInsets.only(top: 25),
@@ -147,7 +158,7 @@ class _LoginPageState extends State<LoginPage> {
                       Container(
                         height: 25.0,
                         width: 25.0,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           image: DecorationImage(
                               image: AssetImage(
                                 'assets/google.png',
@@ -156,7 +167,7 @@ class _LoginPageState extends State<LoginPage> {
                           shape: BoxShape.circle,
                         ),
                       ),
-                      Text(
+                   const   Text(
                         'Sign in with Google',
                         style: TextStyle(
                             fontSize: 12.0,
@@ -170,6 +181,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
             InkWell(
               child: Container(
+            
                 width: 130,
                 height: 50,
                 margin: EdgeInsets.only(top: 25),
@@ -180,17 +192,18 @@ class _LoginPageState extends State<LoginPage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
+                      
                       Container(
                         height: 25.0,
                         width: 25.0,
-                        decoration: BoxDecoration(
+                        decoration:const BoxDecoration(
                           image: DecorationImage(
                               image: AssetImage('assets/gmail.png'),
                               fit: BoxFit.cover),
                           shape: BoxShape.circle,
                         ),
                       ),
-                      Text(
+                      const Text(
                         'Continue with Email',
                         style: TextStyle(
                             fontSize: 12.0,
@@ -202,10 +215,10 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 13.0,
             ),
-            Align(
+           const Align(
               alignment: Alignment.center,
               child: Text(
                 "By continuing, you agree to our Terms and conditions and ",
@@ -215,10 +228,10 @@ class _LoginPageState extends State<LoginPage> {
                     fontWeight: FontWeight.w300),
               ),
             ),
-            SizedBox(
+         const   SizedBox(
               height: 5.0,
             ),
-            Align(
+           const Align(
               alignment: Alignment.center,
               child: Text(
                 "Privacy Police.",
@@ -226,9 +239,73 @@ class _LoginPageState extends State<LoginPage> {
                     decoration: TextDecoration.underline, color: Colors.white),
               ),
             ),
+            Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    pressed
+                        ? getData(context, "ashish", "ashish123") :
+                        Center(
+                            child: TextButton(
+                                onPressed: () => {
+                                      setState(() {
+                                      
+                                          pressed = !pressed;
+                                        
+                                      })
+                                    },
+                                child: const Text(
+                                  "Check Login",
+                                  style: TextStyle(
+                                  
+                                      color: Colors.white,
+                                      fontSize: 16),
+                                )),
+                          ),
+                  ],
+                ),
           ]),
+          
         ),
       ]),
     );
   }
+
+
+  FutureBuilder<LoginResponse> getData(
+      BuildContext context, String userId, String password) {
+    final client = ApiService(Dio(BaseOptions(contentType: "application/json")),
+        baseUrl: 'http://apitest.safaimitra.click');
+
+    return FutureBuilder<LoginResponse>(
+      future: client.login(userId, password),
+      builder: (context, snapshot) {
+        if (snapshot.error == null){
+         print('no Error Found');
+        } else {
+          print('snapshot error ${snapshot.error}');
+        }
+        if (snapshot.connectionState == ConnectionState.done) {
+          print(snapshot.data?.toJson());
+        
+          return Center(
+            child:  TextButton(
+                onPressed: () => {
+                      setState(() {
+                    
+                      })
+                    },
+                child: const Text(
+                  "Check Login",
+                  style: TextStyle(color: Colors.yellow, fontSize: 16),
+                )),
+          );
+        } else {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        }
+      },
+    );
+  }
+
 }
