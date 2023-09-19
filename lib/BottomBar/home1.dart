@@ -1,8 +1,10 @@
 // import 'package:another_carousel_pro/another_carousel_pro.dart';
 import 'dart:convert';
 
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:retrofit/http.dart';
+import 'package:safaimitra/LoginApi/api_service.dart';
 import 'package:safaimitra/apirequest.dart';
 import 'package:safaimitra/drawer.dart';
 import 'package:safaimitra/slider_screen.dart';
@@ -272,28 +274,5 @@ class _HomePage1State extends State<HomePage1> {
       ),
       drawer: DrawerFile(),
     );
-    // } else {
-    //   return Center(
-    //     child: CircularProgressIndicator(),
-    //   );
-    // }
-
-    // future: null,
   }
-
-  // Future<List<Apirequest>> getData() async {
-  //   final response = await http
-  //       .post(Uri.parse('http://apitest.safaimitra.click/auth/login'));
-  //   var data = jsonDecode(response.body.toString());
-  //   print(data);
-
-  //   if (response.statusCode == 200) {
-  //     for (Map<String, dynamic> index in data) {
-  //       apirequest.add(Apirequest.fromJson(index));
-  //     }
-  //     return apirequest;
-  //   } else {
-  //     return apirequest;
-  //   }
-  // }
 }
