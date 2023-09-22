@@ -1,4 +1,3 @@
-
 part of 'data.dart';
 
 // **************************************************************************
@@ -12,18 +11,17 @@ LoginResponse _$ResponseFromJson(Map<String, dynamic> json) {
     user: json['user'] as String,
     menu: json['menu'] as String,
     projects: json['projects'] as String,
-
   );
 }
 
-Map<String, dynamic> _$ResponseToJson(LoginResponse instance) => <String, dynamic>{
-  'message': instance.message,
-  'accessToken': instance.accessToken,
-  'user': instance.user,
-  'menu': instance.menu,
-  'projects': instance.projects,
-
-};
+Map<String, dynamic> _$ResponseToJson(LoginResponse instance) =>
+    <String, dynamic>{
+      'message': instance.message,
+      'accessToken': instance.accessToken,
+      'user': instance.user,
+      'menu': instance.menu,
+      'projects': instance.projects,
+    };
 
 ResponseData _$ResponseDataFromJson(Map<String, dynamic> json) {
   return ResponseData(
@@ -35,4 +33,3 @@ Map<String, dynamic> _$ResponseDataToJson(ResponseData instance) =>
     <String, dynamic>{
       'user': instance.user,
     };
-

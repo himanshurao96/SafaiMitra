@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:safaimitra/LoginApi/api_service.dart';
 import 'package:safaimitra/Utils.dart';
+import 'package:safaimitra/loginEmail.dart';
 import 'package:safaimitra/otp.dart';
 // import 'package:http/http.dart' as http;
 
@@ -194,13 +195,21 @@ class _LoginPageState extends State<LoginPage> {
                           shape: BoxShape.circle,
                         ),
                       ),
-                      Text(
-                        'Continue with Email',
-                        style: TextStyle(
-                            fontSize: 12.0,
-                            color: Colors.black,
-                            fontWeight: FontWeight.w500),
-                      ),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => LoginWithEmail()));
+                        },
+                        child: Text(
+                          'Continue with Email',
+                          style: TextStyle(
+                              fontSize: 12.0,
+                              color: Colors.black,
+                              fontWeight: FontWeight.w500),
+                        ),
+                      )
                     ],
                   ),
                 ),
@@ -230,62 +239,62 @@ class _LoginPageState extends State<LoginPage> {
                     decoration: TextDecoration.underline, color: Colors.white),
               ),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                pressed
-                    ? getData(context, "ashish", "ashish123")
-                    : Center(
-                        child: TextButton(
-                            onPressed: () => {
-                                  setState(() {
-                                    pressed = !pressed;
-                                  })
-                                },
-                            child: const Text(
-                              "Check Login",
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 16),
-                            )),
-                      ),
-              ],
-            ),
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.end,
+            //   children: [
+            //     pressed
+            //         ? getData(context, "ashish", "ashish123")
+            //         : Center(
+            //             child: TextButton(
+            //                 onPressed: () => {
+            //                       setState(() {
+            //                         pressed = !pressed;
+            //                       })
+            //                     },
+            //                 child: const Text(
+            //                   "Check Login",
+            //                   style:
+            //                       TextStyle(color: Colors.white, fontSize: 16),
+            //                 )),
+            //           ),
+            //   ],
+            // ),
           ]),
         ),
       ]),
     );
   }
 
-  FutureBuilder<LoginResponse> getData(
-      BuildContext context, String userId, String password) {
-    final client = ApiService(Dio(BaseOptions(contentType: "application/json")),
-        baseUrl: 'http://apitest.safaimitra.click');
+  // FutureBuilder<LoginResponse> getData(
+  //     BuildContext context, String userId, String password) {
+  //   final client = ApiService(Dio(BaseOptions(contentType: "application/json")),
+  //       baseUrl: 'http://apitest.safaimitra.click');
 
-    return FutureBuilder<LoginResponse>(
-      future: client.login(userId, password),
-      builder: (context, snapshot) {
-        if (snapshot.error == null) {
-          print('no Error Found');
-        } else {
-          print('snapshot error ${snapshot.error}');
-        }
-        if (snapshot.connectionState == ConnectionState.done) {
-          print(snapshot.data?.toJson());
+  //   return FutureBuilder<LoginResponse>(
+  //     future: client.login(userId, password),
+  //     builder: (context, snapshot) {
+  //       if (snapshot.error == null) {
+  //         print('no Error Found');
+  //       } else {
+  //         print('snapshot error ${snapshot.error}');
+  //       }
+  //       if (snapshot.connectionState == ConnectionState.done) {
+  //         print(snapshot.data?.toJson());
 
-          return Center(
-            child: TextButton(
-                onPressed: () => {setState(() {})},
-                child: const Text(
-                  "Check Login",
-                  style: TextStyle(color: Colors.yellow, fontSize: 16),
-                )),
-          );
-        } else {
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
-        }
-      },
-    );
-  }
+  //         return Center(
+  //           child: TextButton(
+  //               onPressed: () => {setState(() {})},
+  //               child: const Text(
+  //                 "Check Login",
+  //                 style: TextStyle(color: Colors.yellow, fontSize: 16),
+  //               )),
+  //         );
+  //       } else {
+  //         return const Center(
+  //           child: CircularProgressIndicator(),
+  //         );
+  //       }
+  //     },
+  //   );
+  // }
 }

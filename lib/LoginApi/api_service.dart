@@ -10,7 +10,10 @@ abstract class ApiService {
 
   @POST("/auth/login")
   @FormUrlEncoded()
-  Future<LoginResponse> login(@Field("UserId") String userId, @Field("Password") String password);
+  Future<LoginResponse> login(
+      @Field("UserId") String userId, @Field("Password") String password);
+
+  // Future<UserResponse> user();
 }
 
 @JsonSerializable()
@@ -19,10 +22,13 @@ class LoginResponse {
   String token;
   @JsonKey(name: 'accessToken')
   String userId;
+  // @JsonKey(name: 'user')
+  // String User;
   // do more as per api response
 
   LoginResponse({required this.token, required this.userId});
 
-  factory LoginResponse.fromJson(Map<String, dynamic> json) => _$LoginResponseFromJson(json);
+  factory LoginResponse.fromJson(Map<String, dynamic> json) =>
+      _$LoginResponseFromJson(json);
   Map<String, dynamic> toJson() => _$LoginResponseToJson(this);
 }
