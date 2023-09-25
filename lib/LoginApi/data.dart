@@ -8,7 +8,7 @@ part 'data.g.dart';
 class LoginResponse {
   late String message;
   late String accessToken;
-  late String user;
+  late List<dynamic> user;
   late String menu;
   late String projects;
 
@@ -43,8 +43,8 @@ class LoginResponse {
 //     required this.Role,
 //     required this.ContactNo,
 //   });
-//   factory user.fromJson(Map<String, dynamic> json) => _$ResponseFromJson(json);
-//   Map<String, dynamic> toJson() => _$ResponseToJson(this as LoginResponse);
+// factory user.fromJson(Map<String, dynamic> json) => _$ResponseFromJson(json);
+// Map<String, dynamic> toJson() => _$ResponseToJson(this as LoginResponse);
 // }
 
 // _$userFromJson(Map<String, dynamic> json) {

@@ -8,7 +8,7 @@ LoginResponse _$ResponseFromJson(Map<String, dynamic> json) {
   return LoginResponse(
     message: json['message'] as String,
     accessToken: json['accessToken'] as String,
-    user: json['user'] as String,
+    user: (json['user'] as List<dynamic>).map((e) => e as String).toList(),
     menu: json['menu'] as String,
     projects: json['projects'] as String,
   );
@@ -25,7 +25,7 @@ Map<String, dynamic> _$ResponseToJson(LoginResponse instance) =>
 
 ResponseData _$ResponseDataFromJson(Map<String, dynamic> json) {
   return ResponseData(
-    user: json['user'] as List,
+    user: json['user'] as List<dynamic>,
   );
 }
 

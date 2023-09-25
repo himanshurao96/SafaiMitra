@@ -2,10 +2,12 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:safaimitra/BottomBar/bottomtap.dart';
 // import 'package:safaimitra/LoginApi/api_service.dart';
 // import 'package:http/http.dart';
 // import 'package:safaimitra/BottomBar/bottomtap.dart'
 import 'package:safaimitra/Utils.dart';
+import 'package:safaimitra/login.dart';
 
 import 'LoginApi/api_service.dart';
 
@@ -186,7 +188,7 @@ class _LoginWithEmailState extends State<LoginWithEmail> {
                                   shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(10)),
                                   padding: const EdgeInsets.symmetric(
-                                      horizontal: 155.0, vertical: 15.0)),
+                                      horizontal: 135, vertical: 12.0)),
                               child: const Text(
                                 "LOGIN",
                                 style: TextStyle(
@@ -194,19 +196,17 @@ class _LoginWithEmailState extends State<LoginWithEmail> {
                                 ),
                               ),
                               onPressed: () {
-                                // print(userController.text.toString());
-                                // print(passwordController.text.toString());
-                                // pressed
-                                //     ? getData(
-                                //         context,
-                                //         userController.text.toString(),
-                                //         passwordController.text.toString())
                                 setState(() {
                                   pressed = !pressed;
                                 });
                               }),
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => LoginPage()));
+                        },
                         child: Text(
                           "Not Registered ? Login here",
                           style: TextStyle(
@@ -247,13 +247,21 @@ class _LoginWithEmailState extends State<LoginWithEmail> {
           return Center(
             child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.black54,
-                ),
-                // shape: RoundedRectangleBorder(
-                //     borderRadius: BorderRadius.circular(10)),
-                // padding: const EdgeInsets.symmetric(
-                //     horizontal: 155.0, vertical: 15.0)),
-                onPressed: () => {setState(() {})},
+                    primary: Colors.black54,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10)),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 135.0, vertical: 12.0)),
+                onPressed: () {
+                  setState(() {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => BottomTapBar()));
+                  });
+                  // Navigator.push(context,
+                  //     MaterialPageRoute(builder: (context) => BottomTapBar()));
+                },
                 child: const Text(
                   "LOGIN",
                   style: TextStyle(color: Colors.yellow, fontSize: 12),

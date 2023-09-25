@@ -10,12 +10,14 @@ LoginResponse _$LoginResponseFromJson(Map<String, dynamic> json) =>
     LoginResponse(
       token: json['message'] as String,
       userId: json['accessToken'] as String,
+      user: json['user'] as List<dynamic>,
     );
 
 Map<String, dynamic> _$LoginResponseToJson(LoginResponse instance) =>
     <String, dynamic>{
       'message': instance.token,
       'accessToken': instance.userId,
+      'user': instance.user,
     };
 
 // **************************************************************************
