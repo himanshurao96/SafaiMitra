@@ -1,8 +1,6 @@
-import 'dart:math';
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
-import 'package:safaimitra/LoginApi/api_service.dart';
+
 import 'package:safaimitra/Utils.dart';
 import 'package:safaimitra/loginEmail.dart';
 import 'package:safaimitra/otp.dart';

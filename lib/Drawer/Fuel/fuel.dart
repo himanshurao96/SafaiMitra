@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:safaimitra/BottomBar/bottomtap.dart';
+// import 'package:safaimitra/BottomBar/bottomtap.dart';
 import 'package:safaimitra/Drawer/Fuel/add.dart';
 import 'package:safaimitra/Drawer/Fuel/list.dart';
 import 'package:safaimitra/Drawer/Fuel/report.dart';
@@ -7,37 +7,43 @@ import 'package:safaimitra/Utils.dart';
 import 'package:safaimitra/drawer.dart';
 import 'package:pie_chart/pie_chart.dart';
 
-class FuelPage extends StatelessWidget {
+class FuelPage extends StatefulWidget {
+  @override
+  State<FuelPage> createState() => _FuelPageState();
+}
+
+class _FuelPageState extends State<FuelPage> {
   final dataMap = <String, double>{
     "Today": 0,
     "This Month": 2100,
     "Prev.Month": 20000,
     "This Year": 1000000,
   };
+
   final legendLabels = <String, String>{
     "Today": "Today : 0",
     "This Month": "This Month : 2100",
     "Prev.Month": "Prev.Month : 20000",
     "This Year": "This Year : 1000000",
   };
+
   final dataMap2 = <String, double>{
     "Today": 0,
     "This Month": 0,
     "Prev.Month": 500,
     "This Year": 20000,
   };
+
   final legendLabels2 = <String, String>{
     "Today": "Today : 0 L",
     "This Month": "This Month : 0 L",
     "Prev.Month": "Prev.Month : 500 L",
     "This Year": "This Year : 20000 L",
   };
+
   bool _showLegendLabel = true;
 
   // final colorList = <Color>[
-  //   Colors.greenAccent,
-  //   Utils.hexToColor("e0d4ff"),
-  // ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,9 +74,9 @@ class FuelPage extends StatelessWidget {
             Card(
                 color: Colors.white,
                 shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0)),
+                    borderRadius: BorderRadius.circular(15.0)),
                 child: Container(
-                  padding: EdgeInsets.all(15.0),
+                  padding: EdgeInsets.all(10.0),
                   height: 150,
                   child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -79,7 +85,7 @@ class FuelPage extends StatelessWidget {
                           dataMap: dataMap,
                           animationDuration: Duration(milliseconds: 800),
                           chartLegendSpacing: 70,
-                          chartRadius: MediaQuery.of(context).size.width / 2,
+                          chartRadius: double.infinity,
                           colorList: [
                             Utils.hexToColor("#D6BAFF"),
                             Utils.hexToColor("#CAA7FF"),

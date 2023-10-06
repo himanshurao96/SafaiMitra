@@ -1,14 +1,9 @@
 // import 'package:another_carousel_pro/another_carousel_pro.dart';
-import 'dart:convert';
 
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:retrofit/http.dart';
-import 'package:safaimitra/LoginApi/api_service.dart';
-import 'package:safaimitra/apirequest.dart';
+
 import 'package:safaimitra/drawer.dart';
 import 'package:safaimitra/slider_screen.dart';
-import 'package:http/http.dart' as http;
 
 // import 'package:scroll_snap_list/scroll_snap_list.dart';
 
@@ -22,44 +17,12 @@ class HomePage1 extends StatefulWidget {
 }
 
 class _HomePage1State extends State<HomePage1> {
-  // var jsonList;
-  // @override
-  // void initState() {
-  //   getData();
-  // }
-
-  // void getData() async {
-  //   try {
-  //     var ResponseData = await Dio().get('http://apitest.safaimitra.click');
-  //     if (ResponseData.statusCode == 200) {
-  //       setState(() {
-  //         jsonList = ResponseData.data['user'] as List<dynamic>;
-  //       });
-  //     } else {
-  //       print(ResponseData.statusCode);
-  //     }
-  //   } catch (e) {
-  //     print(e);
-  //   }
-  // }
-
-  // List<Apirequest> apirequest = [];
   @override
   Widget build(BuildContext context) {
-    // return FutureBuilder(
-    //   // future: getData(),
-    //   builder: (context, snapshot) {
-    //     if (snapshot.hasData) {
     return Scaffold(
       backgroundColor: Utils.hexToColor("#e0d4ff"),
       appBar: AppBar(
         backgroundColor: Utils.hexToColor("#6A0EFF"),
-        // leading: IconButton(
-        //     onPressed: () {
-        //       Navigator.push(context,
-        //           MaterialPageRoute(builder: (context) => DrawerFile()));
-        //     },
-        //     icon: Icon(Icons.clear_all_outlined)),
         title: Text(
           "Safai Mitra",
           style: TextStyle(fontSize: 22),
@@ -74,15 +37,7 @@ class _HomePage1State extends State<HomePage1> {
           // width: 100,
           height: 195,
 
-          // child: ListView.builder(
-          //     // itemCount: jsonList == null ? 0 : jsonList.length,
-          //     // padding: EdgeInsets.all(8),
-          //     // itemBuilder: (BuildContext context, int index) {
           child: Card(
-            // child: ListTile(
-            //   title: Text(jsonList[index]['FName']),
-            //   subtitle: Text(jsonList[index]['LName']),
-            // ),
             color: Colors.white,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(15.0)),
@@ -111,7 +66,7 @@ class _HomePage1State extends State<HomePage1> {
                       children: [
                         // Padding(padding: EdgeInsets.all(3.0)),
                         Text(
-                          "Himanshu Singh",
+                          'Himanshu',
                           style: TextStyle(
                               color: Utils.hexToColor("#6A0EFF"),
                               fontSize: 20,

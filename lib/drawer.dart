@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:safaimitra/Drawer/Complaint.dart';
+import 'package:safaimitra/Drawer/Coverage%20Monitoring/bulkCollection.dart';
+import 'package:safaimitra/Drawer/Coverage%20Monitoring/doorTodoor.dart';
 import 'package:safaimitra/Drawer/Customer%20M/Ledger.dart';
 import 'package:safaimitra/Drawer/Customer%20M/registration.dart';
 import 'package:safaimitra/Drawer/Customer%20M/usercharge.dart';
@@ -116,6 +119,10 @@ class DrawerFile extends StatelessWidget {
                 height: 30,
                 width: 30,
               ),
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => ComplaintPage()));
+              },
             ),
           ),
           Card(
@@ -264,6 +271,10 @@ class DrawerFile extends StatelessWidget {
                 ListTile(
                   title: Text("Door To Door"),
                   onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => DoorToDoorPage()));
                     //action on press
                   },
                 ),
@@ -271,6 +282,10 @@ class DrawerFile extends StatelessWidget {
                 ListTile(
                   title: Text("Bulk Collection"),
                   onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => BulkCollection()));
                     //action on press
                   },
                 ),

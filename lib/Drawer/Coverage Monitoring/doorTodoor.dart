@@ -1,18 +1,128 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:lottie/lottie.dart';
 import 'package:pie_chart/pie_chart.dart';
-import 'package:safaimitra/Drawer/Customer%20M/addkyc.dart';
 import 'package:safaimitra/Utils.dart';
 import 'package:safaimitra/drawer.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 
-class RegistrationPage extends StatefulWidget {
+class DoorToDoorPage extends StatelessWidget {
+  const DoorToDoorPage({super.key});
+
   @override
-  State<RegistrationPage> createState() => _RegistrationPageState();
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Utils.hexToColor("#e0d4ff"),
+      appBar: AppBar(
+        backgroundColor: Utils.hexToColor("#6A0EFF"),
+        title: Text("Door To Door"),
+      ),
+      body: Container(
+        padding: EdgeInsets.all(10),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Lottie.asset(
+              'assets/Qrscan.json',
+              height: 300,
+              fit: BoxFit.cover,
+              repeat: false,
+              reverse: false,
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Align(
+              alignment: Alignment.centerRight,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: Utils.hexToColor("#6A0EFF"),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(40)),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 40.0, vertical: 12.0)),
+                child: const Text(
+                  "SCAN",
+                  style: TextStyle(
+                    fontSize: 15,
+                  ),
+                ),
+                onPressed: () {
+                  // Navigator.push(context,
+                  //     MaterialPageRoute(builder: (context) => LoginPage()));
+                },
+              ),
+            ),
+          ],
+        ),
+      ),
+      floatingActionButton: SpeedDial(
+        icon: Icons.add, //icon on Floating action button
+        activeIcon: Icons.close, //icon when menu is expanded on button
+        backgroundColor:
+            Utils.hexToColor("#6A0EFF"), //background color of button
+        foregroundColor: Colors.white, //font color, icon color in button
+        activeBackgroundColor: Utils.hexToColor(
+            "#6A0EFF"), //background color when menu is expanded
+        activeForegroundColor: Colors.white, //button size
+        visible: true,
+        closeManually: false,
+        curve: Curves.bounceIn,
+        overlayColor: Colors.black,
+        overlayOpacity: 0.5,
+        onOpen: () => print('OPENING DIAL'), // action when menu opens
+        onClose: () => print('DIAL CLOSED'), //action when menu closes
+
+        elevation: 8.0, //shadow elevation of button
+        shape: CircleBorder(), //shape of button
+        children: [
+          SpeedDialChild(
+            //speed dial child
+            child: Icon(Icons.list_alt_outlined),
+            backgroundColor: Utils.hexToColor("#6A0EFF"),
+            foregroundColor: Colors.white,
+            // label: 'First Menu Child',
+            // labelStyle: TextStyle(fontSize: 18.0),
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => QrReportPage()));
+            },
+            onLongPress: () => print('FIRST CHILD LONG PRESS'),
+          ),
+          // SpeedDialChild(
+          //   child: Icon(Icons.brush),
+          //   backgroundColor: Colors.blue,
+          //   foregroundColor: Colors.white,
+          //   label: 'Second Menu Child',
+          //   labelStyle: TextStyle(fontSize: 18.0),
+          //   onTap: () => print('SECOND CHILD'),
+          //   onLongPress: () => print('SECOND CHILD LONG PRESS'),
+          // ),
+          // SpeedDialChild(
+          //   child: Icon(Icons.keyboard_voice),
+          //   foregroundColor: Colors.white,
+          //   backgroundColor: Colors.green,
+          //   label: 'Third Menu Child',
+          //   labelStyle: TextStyle(fontSize: 18.0),
+          //   onTap: () => print('THIRD CHILD'),
+          //   onLongPress: () => print('THIRD CHILD LONG PRESS'),
+          // ),
+
+          //add more menu item childs here
+        ],
+      ),
+      drawer: DrawerFile(),
+    );
+  }
 }
 
-class _RegistrationPageState extends State<RegistrationPage> {
+class QrReportPage extends StatefulWidget {
+  @override
+  State<QrReportPage> createState() => _QrReportPageState();
+}
+
+class _QrReportPageState extends State<QrReportPage> {
   final dataMap = <String, double>{
     "Today": 0,
     "This Month": 0,
@@ -29,15 +139,13 @@ class _RegistrationPageState extends State<RegistrationPage> {
 
   bool _showLegendLabel = true;
 
-  // int _toggleValue = 0;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Utils.hexToColor("#e0d4ff"),
       appBar: AppBar(
         backgroundColor: Utils.hexToColor("#6A0EFF"),
-        title: Text("Registration"),
+        title: Text("Door To Door"),
       ),
       body: Container(
         padding: EdgeInsets.all(8.0),
@@ -56,8 +164,8 @@ class _RegistrationPageState extends State<RegistrationPage> {
                         PieChart(
                           dataMap: dataMap,
                           animationDuration: Duration(milliseconds: 800),
-                          chartLegendSpacing: 70,
-                          chartRadius: 100,
+                          chartLegendSpacing: 60,
+                          chartRadius: 90,
                           colorList: [
                             Utils.hexToColor("#D6BAFF"),
                             Utils.hexToColor("#CAA7FF"),
@@ -73,13 +181,13 @@ class _RegistrationPageState extends State<RegistrationPage> {
 
                           chartType: ChartType.ring,
 
-                          ringStrokeWidth: 28,
+                          ringStrokeWidth: 20,
                           centerTextStyle: TextStyle(
-                              color: Utils.hexToColor("#6A0EFF"),
-                              fontSize: 17,
-                              fontWeight: FontWeight.w500),
+                            color: Utils.hexToColor("#6A0EFF"),
+                            fontSize: 12,
+                          ),
 
-                          centerText: "Kyc",
+                          centerText: "QR Report",
                           legendLabels: _showLegendLabel ? legendLabels : {},
 
                           legendOptions: LegendOptions(
@@ -160,16 +268,25 @@ class _RegistrationPageState extends State<RegistrationPage> {
           ]),
         ]),
       ),
-      floatingActionButton: FloatingActionButton.extended(
+      floatingActionButton: FloatingActionButton(
         backgroundColor: Utils.hexToColor("#6A0EFF"),
+        child: Icon(Icons.qr_code),
         onPressed: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => AddKycButton()));
+          // Navigator.push(
+          //     context, MaterialPageRoute(builder: (context) => AddKycButton()));
         },
-        label: const Text('Add Kyc'),
-        icon: const Icon(Icons.add),
       ),
       drawer: DrawerFile(),
     );
   }
 }
+
+
+// class QrCode extends StatelessWidget {
+//   const QrCode({super.key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return 
+//   }
+// }

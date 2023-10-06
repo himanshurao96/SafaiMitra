@@ -1,6 +1,3 @@
-import 'dart:js_interop';
-
-import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
 part 'data.g.dart';
 
@@ -58,3 +55,41 @@ class ResponseData {
       _$ResponseDataFromJson(json);
   Map<String, dynamic> toJson() => _$ResponseDataToJson(this);
 }
+
+// class user {
+//   late int SrNo;
+//   late String FName;
+//   late String LName;
+//   late String UserId;
+//   late String Password;
+//   late String Role;
+//   late double ContactNo;
+//   late String Email;
+//   late String EmployeeId;
+
+//   user();
+
+//   user.fromJson(Map<String, dynamic> json)
+//       : SrNo = json['SrNo'],
+//         FName = json['FName'],
+//         UserId = json['LName'],
+//         Password = json['Password'],
+//         Role = json['Role'],
+//         ContactNo = json['ContactNo'],
+//         Email = json['Email'],
+//         EmployeeId = json['EmployeeId'];
+
+//   Map<String, dynamic> toJson() => {
+//         'SrNo': SrNo,
+//         'FName': FName,
+//         'LName': LName,
+//         'Password': Password,
+//         'Role': Role,
+//         'ContactNo': ContactNo,
+//         'Email': Email,
+//         'EmployeeId': EmployeeId,
+//       };
+// }
+// factory user.fromJson(Map<String, dynamic> json) => _$ResponseFromJson(json);
+// Map<String, dynamic> toJson() => _$ResponseToJson(this as LoginResponse);
+// }
