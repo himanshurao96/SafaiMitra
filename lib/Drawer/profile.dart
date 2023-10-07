@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:safaimitra/Utils.dart';
 import 'package:safaimitra/login.dart';
+import 'package:safaimitra/loginEmail.dart';
+import 'package:safaimitra/main.dart';
 
 class ProfileEdit extends StatelessWidget {
   const ProfileEdit({super.key});
@@ -140,8 +142,10 @@ class ProfileEdit extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => LoginPage()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => LoginWithEmail()));
                 },
               ),
             ),

@@ -84,8 +84,8 @@ class _FuelPageState extends State<FuelPage> {
                         PieChart(
                           dataMap: dataMap,
                           animationDuration: Duration(milliseconds: 800),
-                          chartLegendSpacing: 70,
-                          chartRadius: double.infinity,
+                          chartLegendSpacing: 60,
+                          chartRadius: 90,
                           colorList: [
                             Utils.hexToColor("#D6BAFF"),
                             Utils.hexToColor("#CAA7FF"),
@@ -101,7 +101,7 @@ class _FuelPageState extends State<FuelPage> {
 
                           chartType: ChartType.ring,
 
-                          ringStrokeWidth: 28,
+                          ringStrokeWidth: 20,
                           centerTextStyle: TextStyle(
                               color: Utils.hexToColor("#6A0EFF"),
                               fontSize: 17,
@@ -151,7 +151,7 @@ class _FuelPageState extends State<FuelPage> {
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10.0)),
               child: Container(
-                padding: EdgeInsets.all(15.0),
+                padding: EdgeInsets.all(10.0),
                 height: 150,
                 child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -159,8 +159,8 @@ class _FuelPageState extends State<FuelPage> {
                       PieChart(
                         dataMap: dataMap2,
                         animationDuration: Duration(milliseconds: 800),
-                        chartLegendSpacing: 70,
-                        chartRadius: MediaQuery.of(context).size.width / 2,
+                        chartLegendSpacing: 60,
+                        chartRadius: 90,
                         colorList: [
                           Utils.hexToColor("#D6BAFF"),
                           Utils.hexToColor("#CAA7FF"),
@@ -176,7 +176,7 @@ class _FuelPageState extends State<FuelPage> {
 
                         chartType: ChartType.ring,
 
-                        ringStrokeWidth: 28,
+                        ringStrokeWidth: 20,
                         centerTextStyle: TextStyle(
                             color: Utils.hexToColor("#6A0EFF"),
                             fontSize: 17,

@@ -1,26 +1,27 @@
 // import 'dart:js';
 
 import 'package:flutter/material.dart';
+import 'package:safaimitra/BottomBar/home1.dart';
 import 'package:safaimitra/login.dart';
+import 'package:safaimitra/loginEmail.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+Future main() async {
+  WidgetsFlutterBinding.ensureInitialized();
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
+  // Constants.prefs = await SharedPreferences.getInstance();
+  runApp(
+    MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'SafaiMitra',
+      title: "My App",
       home: LoginPage(),
-    );
-    // BottomTapBar();
-  }
+    ),
+  );
 }
+
+// class Constants {
+//   static SharedPreferences? prefs;
+// }
 
 // class SplashPage extends StatefulWidget {
 //   const SplashPage({super.key});

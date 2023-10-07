@@ -56,8 +56,8 @@ class _RegistrationPageState extends State<RegistrationPage> {
                         PieChart(
                           dataMap: dataMap,
                           animationDuration: Duration(milliseconds: 800),
-                          chartLegendSpacing: 70,
-                          chartRadius: 100,
+                          chartLegendSpacing: 60,
+                          chartRadius: 90,
                           colorList: [
                             Utils.hexToColor("#D6BAFF"),
                             Utils.hexToColor("#CAA7FF"),
@@ -73,7 +73,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
 
                           chartType: ChartType.ring,
 
-                          ringStrokeWidth: 28,
+                          ringStrokeWidth: 20,
                           centerTextStyle: TextStyle(
                               color: Utils.hexToColor("#6A0EFF"),
                               fontSize: 17,

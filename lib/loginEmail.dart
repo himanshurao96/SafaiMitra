@@ -3,11 +3,13 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:safaimitra/BottomBar/bottomtap.dart';
 
 import 'package:safaimitra/LoginApi/api_service.dart';
 
 import 'package:safaimitra/Utils.dart';
 import 'package:safaimitra/login.dart';
+import 'package:safaimitra/main.dart';
 
 class LoginWithEmail extends StatefulWidget {
   const LoginWithEmail({super.key});
@@ -21,6 +23,18 @@ class _LoginWithEmailState extends State<LoginWithEmail> {
   TextEditingController passwordController = TextEditingController();
 
   bool pressed = false;
+  // moveToHome(BuildContext context) async {
+  //   setState(() {
+  //     pressed = !pressed;
+  //   });
+  //   await Future.delayed(Duration(seconds: 1));
+  //   Constants.prefs?.setBool("loggedIn", true);
+  //   await Navigator.pushReplacement(
+  //       context, MaterialPageRoute(builder: (context) => BottomTapBar()));
+  //   setState(() {
+  //     pressed = false;
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -194,40 +208,13 @@ class _LoginWithEmailState extends State<LoginWithEmail> {
                                   fontSize: 12,
                                 ),
                               ),
-                              onPressed: () async {
-                                // if (userController != '' &&
-                                //     passwordController != '') {
-                                //   print('Successfull');
-                                //   logindata.setBool('login', false);
-
-                                //   logindata.setString(
-                                //       'username', userController as String);
-                                //   Navigator.pushReplacement(
-                                //       context,
-                                //       MaterialPageRoute(
-                                //           builder: (context) =>
-                                //               BottomTapBar()));
-                                // }
-
-                                // Navigator.push(
-                                //     context,
-                                //     MaterialPageRoute(
-                                //         builder: (context) => BottomTapBar()));
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => BottomTapBar()));
                                 setState(() {
                                   pressed = !pressed;
-                                  // if (userController != '' &&
-                                  //     passwordController != '') {
-                                  //   print('Successfull');
-                                  //   logindata.setBool('login', false);
-
-                                  //   logindata.setString(
-                                  //       'username', userController as String);
-                                  //   Navigator.pushReplacement(
-                                  //       context,
-                                  //       MaterialPageRoute(
-                                  //           builder: (context) =>
-                                  //               BottomTapBar()));
-                                  // }
                                 });
                               }),
                       TextButton(
@@ -283,18 +270,7 @@ class _LoginWithEmailState extends State<LoginWithEmail> {
                     padding: const EdgeInsets.symmetric(
                         horizontal: 135.0, vertical: 12.0)),
                 onPressed: () {
-                  // setState(() {
-                  //   if (userController != '' && passwordController != '') {
-                  //     print('Successfull');
-                  //     logindata.setBool('login', false);
-
-                  //     logindata.setString('username', userController as String);
-                  //     Navigator.pushReplacement(
-                  //         context,
-                  //         MaterialPageRoute(
-                  //             builder: (context) => BottomTapBar()));
-                  //   }
-                  // });
+                  setState(() {});
                 },
                 child: const Text(
                   "LOGIN",
