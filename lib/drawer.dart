@@ -6,6 +6,9 @@ import 'package:safaimitra/Drawer/Customer%20M/Ledger.dart';
 import 'package:safaimitra/Drawer/Customer%20M/registration.dart';
 import 'package:safaimitra/Drawer/Customer%20M/usercharge.dart';
 import 'package:safaimitra/Drawer/Fuel/fuel.dart';
+import 'package:safaimitra/Drawer/Waste%20Collection/Treatment.dart';
+import 'package:safaimitra/Drawer/Waste%20Collection/generator.dart';
+import 'package:safaimitra/Drawer/Waste%20Collection/storage.dart';
 import 'package:safaimitra/Drawer/profile.dart';
 import 'package:safaimitra/Utils.dart';
 
@@ -241,6 +244,59 @@ class DrawerFile extends StatelessWidget {
                 ListTile(
                   title: Text("Route"),
                   onTap: () {
+                    //action on press
+                  },
+                ),
+
+                //more child menu
+              ],
+            ),
+          ),
+          Card(
+            color: Colors.white,
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0)),
+            child: ExpansionTile(
+              title: Text(
+                "Waste Collection",
+                style: TextStyle(
+                  color: Utils.hexToColor("#6A0EFF"),
+                  fontSize: 15,
+                ),
+              ),
+              leading: Image.asset(
+                "assets/coverage.png",
+                height: 30,
+                width: 30,
+              ), //add icon
+              // childrenPadding: EdgeInsets.only(left: 60), //children padding
+              children: [
+                ListTile(
+                  title: Text("Generator"),
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => GeneratorPage()));
+                    //action on press
+                  },
+                ),
+
+                ListTile(
+                  title: Text("Storage"),
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => StoragePage()));
+                    //action on press
+                  },
+                ),
+                ListTile(
+                  title: Text("Treatment"),
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => TreatmentPage()));
                     //action on press
                   },
                 ),
