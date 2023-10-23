@@ -3,7 +3,6 @@ import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lottie/lottie.dart';
 import 'package:pie_chart/pie_chart.dart';
-import 'package:safaimitra/Qr_scan.dart';
 import 'package:safaimitra/Utils.dart';
 import 'package:safaimitra/drawer.dart';
 import 'package:toggle_switch/toggle_switch.dart';
@@ -49,10 +48,7 @@ class DoorToDoorPage extends StatelessWidget {
                     fontSize: 15,
                   ),
                 ),
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => QrScanPage()));
-                },
+                onPressed: () {},
               ),
             ),
           ],

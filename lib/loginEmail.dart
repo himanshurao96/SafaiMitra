@@ -8,8 +8,11 @@ import 'package:safaimitra/BottomBar/bottomtap.dart';
 import 'package:safaimitra/LoginApi/api_service.dart';
 
 import 'package:safaimitra/Utils.dart';
+import 'package:safaimitra/apirequest.dart';
 import 'package:safaimitra/login.dart';
 import 'package:safaimitra/main.dart';
+import 'package:safaimitra/perf.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginWithEmail extends StatefulWidget {
   const LoginWithEmail({super.key});
@@ -35,6 +38,7 @@ class _LoginWithEmailState extends State<LoginWithEmail> {
   //     pressed = false;
   //   });
   // }
+  static const stringSharedPreference = "string shared preferences";
 
   @override
   Widget build(BuildContext context) {
@@ -259,6 +263,14 @@ class _LoginWithEmailState extends State<LoginWithEmail> {
         }
         if (snapshot.connectionState == ConnectionState.done) {
           print(snapshot.data?.toJson());
+          print('token ${snapshot.data?.userId}');
+
+          Future setString() async {
+            final prefs = await SharedPreferences.getInstance();
+            return prefs.setString(
+                stringSharedPreference, '${snapshot.data?.userId}');
+          }
+
           // print(userId + '\n' + password);
 
           return Center(

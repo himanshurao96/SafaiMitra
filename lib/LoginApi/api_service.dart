@@ -30,4 +30,8 @@ class LoginResponse {
   factory LoginResponse.fromJson(Map<String, dynamic> json) =>
       _$LoginResponseFromJson(json);
   Map<String, dynamic> toJson() => _$LoginResponseToJson(this);
+
+  // static Future setString() async {
+  // final prefs = await SharedPreferences.getInstance();
+  // return prefs.setString(stringSharedPreference, "");
 }
