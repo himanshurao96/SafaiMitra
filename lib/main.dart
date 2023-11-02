@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:safaimitra/BottomBar/home1.dart';
+import 'package:safaimitra/Drawer/editProfile.dart';
+import 'package:safaimitra/Drawer/profile.dart';
 import 'package:safaimitra/login.dart';
 import 'package:safaimitra/loginEmail.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -12,10 +14,13 @@ Future main() async {
   // Constants.prefs = await SharedPreferences.getInstance();
   runApp(
     MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: "My App",
-      home: LoginPage(),
-    ),
+        debugShowCheckedModeBanner: false,
+        title: "My App",
+        home: LoginPage(),
+        routes: {
+          'editProfile': (context) => EditProfile(),
+          'profile': (context) => ProfileEdit(),
+        }),
   );
 }
 

@@ -8,16 +8,18 @@ part of 'api_service.dart';
 
 LoginResponse _$LoginResponseFromJson(Map<String, dynamic> json) =>
     LoginResponse(
-      token: json['message'] as String,
-      userId: json['accessToken'] as String,
+      message: json['message'] as String,
+      token: json['accessToken'] as String,
       user: json['user'] as List<dynamic>,
+      menu: json['menu'] as List<dynamic>,
     );
 
 Map<String, dynamic> _$LoginResponseToJson(LoginResponse instance) =>
     <String, dynamic>{
-      'message': instance.token,
-      'accessToken': instance.userId,
+      'message': instance.message,
+      'accessToken': instance.token,
       'user': instance.user,
+      'menu': instance.menu,
     };
 
 // **************************************************************************

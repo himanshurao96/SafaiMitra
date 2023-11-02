@@ -9,7 +9,7 @@ LoginResponse _$ResponseFromJson(Map<String, dynamic> json) {
     message: json['message'] as String,
     accessToken: json['accessToken'] as String,
     user: (json['user'] as List<dynamic>).map((e) => e as String).toList(),
-    menu: json['menu'] as String,
+    menu: List<Menu>.from(json["menu"].map((x) => Menu.fromJson(x))),
     projects: json['projects'] as String,
   );
 }

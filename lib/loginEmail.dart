@@ -263,12 +263,12 @@ class _LoginWithEmailState extends State<LoginWithEmail> {
         }
         if (snapshot.connectionState == ConnectionState.done) {
           print(snapshot.data?.toJson());
-          print('token ${snapshot.data?.userId}');
+          print('token ${snapshot.data?.token}');
 
           Future setString() async {
             final prefs = await SharedPreferences.getInstance();
             return prefs.setString(
-                stringSharedPreference, '${snapshot.data?.userId}');
+                stringSharedPreference, '${snapshot.data?.token}');
           }
 
           // print(userId + '\n' + password);

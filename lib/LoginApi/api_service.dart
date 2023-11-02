@@ -17,15 +17,20 @@ abstract class ApiService {
 @JsonSerializable()
 class LoginResponse {
   @JsonKey(name: 'message')
-  String token;
+  String message;
   @JsonKey(name: 'accessToken')
-  String userId;
+  String token;
   @JsonKey(name: 'user')
   List<dynamic> user;
+  @JsonKey(name: 'menu')
+  List<dynamic> menu;
   // do more as per api response
 
   LoginResponse(
-      {required this.token, required this.userId, required this.user});
+      {required this.message,
+      required this.token,
+      required this.user,
+      required this.menu});
 
   factory LoginResponse.fromJson(Map<String, dynamic> json) =>
       _$LoginResponseFromJson(json);
