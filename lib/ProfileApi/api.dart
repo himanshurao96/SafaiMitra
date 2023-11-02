@@ -7,8 +7,7 @@ class Api {
   String uri1 = 'http://apitest.safaimitra.click/profile/update';
 
   String token =
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiVXNlcklkIjoiYXNoaXNoIiwiQ2xpZW50SUQiOiJ1bmRlZmluZWQiLCJQcm9qZWN0SUQiOiIwMDEwMSIsInJvbGUiOiJTdXBlckFkbWluVGVzdCIsImVtcF9pZCI6IlNNRTAwMDAzIiwidGltZXpvbmUiOiJBc2lhL0NhbGN1dHRhIiwiaG91cnNPZmZzZXQiOiIwIiwibWluc09mZnNldCI6IjAiLCJpYXQiOjE2OTg2ODg2MTksImV4cCI6MTY5OTEyMDYxOX0.tLZbvnT0nNUOB18mrDkxXUu5Qqwj-Js4KJ9oifjConE';
-
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiVXNlcklkIjoiYXNoaXNoIiwiQ2xpZW50SUQiOiJ1bmRlZmluZWQiLCJQcm9qZWN0SUQiOiIwMDEwMSIsInJvbGUiOiJTdXBlckFkbWluVGVzdCIsImVtcF9pZCI6IlNNRTAwMDAzIiwidGltZXpvbmUiOiJBc2lhL0NhbGN1dHRhIiwiaG91cnNPZmZzZXQiOiIwIiwibWluc09mZnNldCI6IjAiLCJpYXQiOjE2OTg5NDc1MDMsImV4cCI6MTY5OTM3OTUwM30.OMOfCTE_LHl8Rz4YJcv6ngFk5Fvc63HjOS9PeE0-EgQ';
   // static const stringSharedPreference = "string shared preferences";
 
   Future getData() async {

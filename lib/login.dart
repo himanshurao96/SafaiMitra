@@ -101,6 +101,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     borderRadius: BorderRadius.circular(10),
                   )),
+              initialCountryCode: 'IN',
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
